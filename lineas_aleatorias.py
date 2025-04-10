@@ -15,13 +15,13 @@ cian = (0, 255, 255)
 
 
 
-color_aleatorio = random.randint (0, 225)
+color_aleatorio = random.randint (0, 255)
 
 pygame.init()
 
-ventana = pygame.display.set_mode((700, 700))
+ventana = pygame.display.set_mode((500, 500))
 
-pygame.display.set_caption("Dibujar formas con pygame")
+pygame.display.set_caption("ejercicio 1")
 
 clock = pygame.time.Clock()
 
@@ -43,33 +43,34 @@ while 1:
     # Rellenar la ventana de color 
     ventana.fill(negro)
 
-    # Dibujar formas con el metodo pygame.draw
+    #dibujar linea 
+    for _ in range(100):
+   
+        linea = random.randint(50, 50 + 400)
+        lineas = random.randint(100, 100 + 350)
+        lineac = random.randint(50, 50 + 400)
+        lineav = random.randint(100, 100 + 350)
+        
+        color_linea = random.choice([rojo, azul, verde, rosado, amarillo, naranja, cian])
 
-    # Dibujar una linea 
-    pygame.draw.line(ventana, color_aleatorio,(100,100),(300,300))
-    pygame.draw.line(ventana, color_aleatorio,(100,300),(300,100))
-    pygame.draw.line(ventana, color_aleatorio,(150,100),(300,300))
-    pygame.draw.line(ventana, color_aleatorio,(300,200),(160,100))
-    pygame.draw.line(ventana, color_aleatorio,(100,110),(300,110))
-    pygame.draw.line(ventana, color_aleatorio,(120,100),(170,300))
-
+        pygame.draw.line(ventana, color_linea, (linea, lineas), (lineac, lineav))
 
     # Dibujar un rectangulo
 
     # rectangulo sin relleno,esquina sup. izq: (100,100),esquina. inf. der: (150,200).
 
-    pygame.draw.rect(ventana,blanco , ((100,100),(475,475)), 1)
+    pygame.draw.rect(ventana,rojo , ((90,90),(400,400)), 1)
 
 
     # Agregar texto
     # Fuente tipo Arial, tamaño 35, negrilla y cursiva.
-    fuente_arial = pygame.font.SysFont("Arial", 39, 1, 1)
-    texto = fuente_arial.render("Colegio San Jose de Guanenta", 3, blanco)
-    ventana.blit(texto,(100,20))
+    fuente_arial = pygame.font.SysFont("Arial", 23, 1, 1)
+    texto = fuente_arial.render("Colegio San Jose de Guanenta", 1, blanco)
+    ventana.blit(texto,(30,20))
 
-    fuente_arial = pygame.font.SysFont("Arial", 31, 1, 1)
-    texto = fuente_arial.render("Mistery Dream (Santiago Angel Ramon)", 2, blanco)
-    ventana.blit(texto,(80,600))
+    fuente_arial = pygame.font.SysFont("Arial", 23, 1, 1)
+    texto = fuente_arial.render("Santiago Angel Ramon", 1, blanco)
+    ventana.blit(texto,(80,400))
     # Actualiza la visualizacion de la ventana
     pygame.display.flip()
 ####################################
